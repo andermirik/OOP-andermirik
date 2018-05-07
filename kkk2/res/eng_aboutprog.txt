@@ -1,0 +1,55 @@
+when you log in to the program, it checks for
+vital
+files for proper operation
+systems. marks an ERROR
+!!! file not found
+
+---------------------------------------------------
+
+To change the config inside the program, you must
+run
+condition: this file exists.
+The algorithm steps since
+the start programmy:
+2->1->[1:8]; to save the config
+you need
+press 's'. When finished press 'd'
+
+---------------------------------------------------
+
+Each slide has a change of language
+
+---------------------------------------------------
+
+Menu buttons 2 and 8 save and load data
+
+---------------------------------------------------
+
+In the demonstration, the [1:4] buttons after
+pressing have 2 
+operating modes: add object type to
+container or 
+remove the last added
+
+---------------------------------------------------
+
+In the demonstration, a button redaktirovaniya
+
+container element with number n; when clicked, it
+will appear
+the text box in which you want to enter a
+number
+the numbering starts with 1
+
+If you enter an incorrect number, a message appears
+
+---------------------------------------------------
+
+From the edit menu, you can use object methods or
+edit its fields
+
+---------------------------------------------------
+
+In the demo, by clicking on 'o' , you can find out
+the quantity
+objects on stage.

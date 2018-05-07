@@ -1,0 +1,8 @@
+res\ru.txt
+res\en.txt
+res\rus_readme.txt
+res\rus_aboutme.txt
+res\rus_aboutprog.txt
+res\eng_readme.txt
+res\eng_aboutme.txt
+res\eng_aboutprog.txt

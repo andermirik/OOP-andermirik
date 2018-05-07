@@ -1,0 +1,97 @@
+ERROR!!! missing a file 
+                            The Ministry of education and science of the DPR
+                            Donetsk national technical University
+
+
+
+										   the faculty of CST
+
+										     Department of PI
+
+			               Course project  
+		        on discipline: Object-oriented programming
+		        on subject: flying Helicopter
+
+
+
+Performed: checked:									    проверил:
+art. gr. PI-17B 								 	Morozova O. V
+Ogurtsov A. Yu									         Schedrin S.V
+											  Nogtev E. A
+
+
+
+					Donetsk 2018.
+
+
+
+Current language: English
+Выбрать другой: 1
+next: 2
+Languages list:
+Russian: 1
+English: 2
+Menu:
+1.Config
+2.Save current session
+3.Change lang
+4.Demonstration
+5.Print readme
+6.Print aboutme
+7.Print aboutprog
+8.Load last session
+Config:
+path to file:
+1: with russian locale
+2: with english locale
+3: russian readme
+4: russian aboutme
+5: russian aboutprog
+6: english readme
+7: english aboutme
+8: english aboutprog
+
+d: done
+с: смена языка
+s: save config
+name:
+Session loaded
+Demonstration:
+1.Mode Fly
+2.Mode Heicopter
+3.Mode the Airplane
+4.Mode ColoredHeli
+
+
+c.смена языка
+s.container view
+b.back
+
+1.Add the Fly to the container
+2.Remove the last Fly from the container
+
+1.Add the helicopter to the container
+2.Remove the last Helicopter from the container
+
+1.Add the Airplane to the container
+2.Remove the last airplane from the container
+
+1.Add Color in the container
+2.Remove the last color from the container
+
+1.Add ColoredHeli in the container
+2.Remove the last ColoredHeli from the container
+
+c.смена языка
+b.back
+o.object count
+object count:
+w.work with n-element of container
+
+Element has no founded
+Work with object: 
+Reduct
+Display
+Method
+return:
+container clear
