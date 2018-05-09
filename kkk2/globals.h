@@ -12,8 +12,8 @@ extern enum lang {
 	eng
 };
 extern enum namefile{
-	aboutme,
 	readme,
+	aboutme,
 	aboutprog
 };
 extern enum slides{

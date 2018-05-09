@@ -1,7 +1,6 @@
 #include "interface.h"
 #include "container.h"
-#include <iterator>
-#include <algorithm>
+
 using namespace std;
 
 int NumStrs(string file) {
@@ -14,7 +13,7 @@ int NumStrs(string file) {
 }
 
 void Interface::Put(int num, int locale, char end) {
-	cout << langs[locale][num-1] << endl;
+	cout << langs[locale][num-1] << end;
 }
 void Interface::UploadFilesMemory()
 {
@@ -82,7 +81,6 @@ bool Interface::CheckIncludeFiles(string file) {
 					result = false;
 					cout << file <<" "<< NumStrs(file) << " < " << count_strs_all[now - 1];
 			}
-			
 		}
 	else 
 		if(!fopen(file.c_str(), "r"))
@@ -93,36 +91,18 @@ bool Interface::CheckIncludeFiles(string file) {
 
 void Interface::PrintFile(int namefile, int locale, string path)
 {
-	fstream fin;
+	ifstream fin;
 	fin.exceptions(ios::failbit);
 	try {
-		if (path == "") {
-			if (namefile == aboutme) {
-				if (locale == rus)
-					fin.open(include_files[3]);
-				else if (locale == eng)
-					fin.open(include_files[6]);
-			}
-			else if (namefile == readme) {
-				if (locale == rus)
-					fin.open(include_files[2]);
-				else if (locale == eng)
-					fin.open(include_files[5]);
-			}
-			else if (namefile == aboutprog) {
-				if (locale == rus)
-					fin.open(include_files[4]);
-				else if (locale == eng)
-					fin.open(include_files[7]);
-			}
-		}
-		else fin.open(path);
+		if (path == "") 
+			fin.open(include_files[namefile+2 + locale*3]);
+		else
+			fin.open(path);
 		string temp;
 		while (!fin.eof()) {
 			getline(fin, temp);
 			cout << temp<<endl;
 		}
-		
 		fin.close();
 	}
 	catch (std::exception const& e) {
