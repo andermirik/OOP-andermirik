@@ -1,8 +1,9 @@
 #pragma once
 #define COUNT_FILES 8
+#define COUNT_STRS_TRANSLETE 97
 #include <iostream>
 #include "object.h"
-
+extern string langs[2][COUNT_STRS_TRANSLETE];
 extern int lang_now;
 extern std::string config_path;
 extern enum lang {

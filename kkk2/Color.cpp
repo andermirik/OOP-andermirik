@@ -1,9 +1,7 @@
 #include"Fly.h"
 Color::Color(int r, int g, int b)
 {
-	Red = r;
-	Green = g;
-	Blue = b;
+	SetColor(r, g, b);
 }
 
 
@@ -14,17 +12,17 @@ void Color::SetColor(int r, int g, int b)
 	Blue = b;
 }
 
-void Color::ToFile(ofstream &fout)
+void Color::ToFile(ofstream& fout)
 {
 	fout << Red << endl << Green << endl << Blue << endl;
 }
 
-void Color::ToStd(ostream & out)
+void Color::ToStd(ostream& out)
 {
 	out <<"Red: "<< Red << endl << "Green: " << Green << endl <<"Blue: "<< Blue << endl;
 }
 
-void Color::read(ifstream&fin)
+void Color::read(ifstream& fin)
 {
 	fin >> Red >> Green >> Blue;
 }

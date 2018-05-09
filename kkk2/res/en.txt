@@ -34,7 +34,7 @@ English: 2
 Menu:
 1.Config
 2.Save current session
-3.Change lang
+3.Сменить язык
 4.Demonstration
 5.Print readme
 6.Print aboutme

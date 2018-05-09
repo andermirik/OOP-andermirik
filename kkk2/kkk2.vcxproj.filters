@@ -75,4 +75,12 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\ru.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="res\en.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

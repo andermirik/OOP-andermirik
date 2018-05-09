@@ -134,6 +134,10 @@
     <ClInclude Include="ObjectList.h" />
     <ClInclude Include="Reader.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="res\en.txt" />
+    <Text Include="res\ru.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

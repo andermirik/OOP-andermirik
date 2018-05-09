@@ -5,3 +5,4 @@ int lang_now = eng;
 std::string include_files[COUNT_FILES];
 std::string config_path = "config.txt";
 int Object::count = 0;
+string langs[2][COUNT_STRS_TRANSLETE];

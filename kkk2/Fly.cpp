@@ -17,9 +17,8 @@ int Fly::GetNumOfPass()
 
 bool Fly::isFlying(int Height)
 {
-	if (Height <= height && Height>=10)
-		return true;
-	else return false;
+	return (Height <= height && Height >= 10);
+
 }
 
 Fly::Fly(int speed, int distance, int num_of_pass, int height)

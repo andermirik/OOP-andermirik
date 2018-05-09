@@ -1,100 +1,87 @@
 #include "interface.h"
 #include "container.h"
+#include <iterator>
+#include <algorithm>
 using namespace std;
+
+int NumStrs(string file) {
+	ifstream inp(file);
+	string s;
+	int count = 0;
+	while (getline(inp, s))
+		count++;
+	return count;
+}
+
 void Interface::Put(int num, int locale, char end) {
-	string msg;
-	ifstream fin;
-	fin.exceptions(ifstream::failbit);
+	cout << langs[locale][num-1] << endl;
+}
+void Interface::UploadFilesMemory()
+{
+	string rumsg;
+	string enmsg;
+	ifstream ruin;
+	ifstream enin;
+	ruin.exceptions(ifstream::failbit);
+	enin.exceptions(ifstream::failbit);
 	try {
-		switch (locale) {
-		case rus:
-			fin.open(include_files[0]);//ru.txt
-			break;
-		case eng:
-			fin.open(include_files[1]);//"en.txt"
-			break;
-		}
-		int now = 1;
-		while (getline(fin, msg))
+		ruin.open(include_files[0]);
+		enin.open(include_files[1]);
+		int now = 0;
+		while (!ruin.eof()&&!enin.eof()&&getline(ruin, rumsg) && getline(enin, enmsg))
 		{
-			if (now++ == num)
-			{
-				cout << msg << end;
-				break;
+			if (now < COUNT_STRS_TRANSLETE) {
+				langs[0][now] = rumsg;
+				langs[1][now++] = enmsg;
 			}
 		}
-		fin.close();
+		ruin.close();
+		enin.close();
 	}
 	catch (std::exception const& e) {
-		if (locale == eng)
-			cerr << "unable to open file with translate"<<endl;
-		else if (locale == rus)
-			cerr << "не удалось открыть файл с перевом"<<endl;
-		
+		if (lang_now == eng)
+			cerr << "unable to open file with translate" << endl;
+		else if (lang_now == rus)
+			cerr << "не удалось открыть файл с перевом" << endl;
 	}
 }
 void Interface::Put(Range range, int locale)
 {
-	string msg;
-	ifstream fin;
-	fin.exceptions(ifstream::failbit);
-	try {
-		switch (locale) {
-		case rus:
-			fin.open(include_files[0]);//ru.txt
-			break;
-		case eng:
-			fin.open(include_files[1]);//"en.txt"
-			break;
-		}
-		int now = 1;
-		while (getline(fin, msg))
-		{
-			if (now++ == range.left)
-			{
-				cout << msg << endl;
-				for (now; now <= range.right && getline(fin, msg); now++) {
-					cout << msg << endl;
-				}
-				break;
-			}
-			
-		}
-		fin.close();
-	}
-	catch (std::exception const& e) {
-		if (locale == eng)
-			cerr << "unable to open file with translate" << endl;
-		else if (locale == rus)
-			cerr << "не удалось открыть файл с перевом" << endl;
-
-	}
+	for (range.left; range.left <= range.right; range.left++)
+		cout << langs[locale][range.left-1] << endl;
 }
 void Interface::cls() {
 	system("cls");
 }
 void Interface::Init(std::string config) {
-	#ifndef FIRSTRUN
-		Interface::UseConfig(config);
-		#define FIRSTRUN
+	static int firstrun = 1;
+	Interface::UseConfig(config);
+	if (firstrun) {
+		firstrun = !firstrun;
 		system("chcp 1251>nul");
 		setlocale(0, "rus");
-	#endif
-		if (!Interface::CheckIncludeFiles())
-			cin.get();
-		Interface::cls();
+	}
+	cout<<NumStrs("res/en.txt");
+	if (!Interface::CheckIncludeFiles())
+		cin.get();
+	Interface::UploadFilesMemory();
 }
 
-bool Interface::CheckIncludeFiles() {
+bool Interface::CheckIncludeFiles(string file) {
 	bool result = true;
-	for each (string file in include_files)
-	{
-		if (!fopen(file.c_str(), "r")) {
-			Interface::Put(1, lang_now);
-			cout << file << endl;
-			result = false;
+	if(file=="")
+		for each (string file in include_files)
+		{
+			if (!fopen(file.c_str(), "r")) {
+				Interface::Put(1, lang_now);
+				cout << file << endl;
+				result = false;
+			}
 		}
-	}
+	else 
+		if(!fopen(file.c_str(), "r"))
+			result = false;
+	
 	return result;
 }
 
@@ -154,9 +141,9 @@ void Interface::UseConfig(std::string config) {
 	}
 	catch (std::exception const& e) {
 		if (lang_now == eng)
-			cerr << "unable to open file" << endl;
+			cerr << "unable to open file with config" << endl;
 		else if (lang_now == rus)
-			cerr << "не удалось открыть файл" << endl;
+			cerr << "не удалось открыть файл с конфигом" << endl;
 
 	}
 }
@@ -254,16 +241,19 @@ void Interface::DrawSlide(int slide, int back_slide) {
 			key = _getch();
 			if (key >= '1' && key <= '8') {
 				cout << endl << endl;
-				Put(57, lang_now, ' ');
-				getline(cin, temp);
+				Put(57, lang_now, ' '); //name:
+				getline(cin, temp); 
 
-				if (fopen(temp.c_str(), "r"))
+				if (fopen(temp.c_str(), "r")) {
+				//	if()
 					include_files[key - 49] = temp;
+				}
 				else Interface::Put(1);
 
 			}
-			else if (key == 's' || key == 'ы')
+			else if (key == 's' || key == 'ы') 
 				Interface::SaveConfig();
+			
 			else if (key == 'c' || key == 'с') {
 				Interface::DrawSlide(change_lang, edit_config);
 				return;
