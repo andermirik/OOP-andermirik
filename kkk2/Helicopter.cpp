@@ -15,7 +15,8 @@ Helicopter::Helicopter(int Speed, int Distance, int NumOfPass, int Height, int N
 {
 	num_of_screw = NumOfScrew;
 	capacity = Capacity;
-	
+	Helicopter::count++;
+	Fly::count--;
 }
 
 void Helicopter::ToFile(ofstream & fout)

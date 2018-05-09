@@ -4,12 +4,15 @@ Airplane::Airplane(int Speed, int Distance, int NumOfPass, int Height, int NumOf
 {
 	num_of_engines = NumOfScrew;
 	capacity = Capacity;
+	Airplane::count++;
+	Fly::count--;
 }
 
 void Airplane::ToFile(ofstream & fout)
 {
 	Fly::ToFile(fout);
 	fout << num_of_engines << endl << capacity << endl;
+	
 }
 
 

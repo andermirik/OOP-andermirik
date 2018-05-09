@@ -16,12 +16,14 @@ protected:
 	int distance;
 	int num_of_pass;
 public:
+	static int count;
 	int GetDistance();
 	int GetHeight();
 	int GetNumOfPass();
 	bool isFlying(int Height);
 	Fly(int speed, int distance, int num_of_pass, int height);
 	virtual ~Fly() {
+		Fly::count--;
 	}
 	virtual void ToFile(ofstream &fout);
 	virtual void ToStd(ostream &out);
@@ -34,9 +36,10 @@ protected:
 	int num_of_screw;
 	int capacity;
 public:
+	static int count;
 	virtual bool AddFuel(int Fuel);	
 	Helicopter(int Speed, int Distance, int NumOfPass, int Height, int NumOfScrew, int Capacity);
-	virtual ~Helicopter() {}
+	virtual ~Helicopter() { Helicopter::count--; Fly::count++; }
 	virtual void ToFile(ofstream& fout);
 	void operator~(); //сбросить топливо
 	friend void operator++(Helicopter&);//заправить
@@ -50,9 +53,10 @@ protected:
 	int num_of_engines;
 	int capacity;
 public:
+	static int count;
 	bool AddFuel(int Fuel);
 	Airplane(int Speed, int Distance, int NumOfPass, int Height, int NumOfEngines, int Capacity);
-	virtual ~Airplane() {}
+	virtual ~Airplane() { Airplane::count--; Fly::count++; }
 	void ToFile(ofstream& fout);
 	void operator~(); //сбросить топливо
 	friend void operator++(Airplane&);//заправить
@@ -80,6 +84,7 @@ public:
 
 class ColoredHeli :public Color, public Helicopter {
 public:
+	static int count;
 	void ToFile(ofstream&);
 	ColoredHeli(int Speed, int Distance, int NumOfPass, int Height, int NumOfScrew, int Capacity, int red, int green, int blue);
 	void SetColor(int color);
@@ -88,4 +93,8 @@ public:
 	void operator--();//ALLAH AKBAR
 	void WhatColor();
 	void readFields(int args = 0);
+	~ColoredHeli() {
+		ColoredHeli::count--;
+		Helicopter::count++;
+	}
 };

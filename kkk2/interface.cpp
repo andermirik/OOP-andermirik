@@ -311,7 +311,10 @@ void Interface::DrawSlide(int slide, int back_slide) {
 			}
 			else if (key == 'o' || key == 'ù') {
 				Interface::Put(88, lang_now, ' ');
-				cout << Object::count << endl;
+				cout <<"Fly: "<< Fly::count << endl;
+				cout <<"Helicopter: "<< Helicopter::count<<endl;
+				cout <<"Airplane: "<< Airplane::count<<endl;
+				cout <<"ColoredHeli: "<< ColoredHeli::count<<endl;
 			}
 			
 		} while (key != 'b' && key != 'è');

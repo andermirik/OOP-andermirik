@@ -27,7 +27,7 @@ Fly::Fly(int speed, int distance, int num_of_pass, int height)
 	this->distance = distance;
 	this->num_of_pass = num_of_pass;
 	this->height = height;
-	Object::count++;
+	Fly::count++;
 }
 
 void Fly::ToFile(ofstream & fout)
@@ -76,6 +76,8 @@ ColoredHeli::ColoredHeli(int Speed, int Distance, int NumOfPass, int Height, int
 	int red, int green, int blue)
 	:Helicopter(Speed, Distance, NumOfPass, Height, NumOfScrew, Capacity), Color(red, green, blue)
 {
+	ColoredHeli::count++;
+	Helicopter::count--;
 }
 
 void ColoredHeli::SetColor(int color) // 0xff00ff
@@ -113,4 +115,5 @@ void ColoredHeli::readFields(int args)
 {
 	Helicopter::readFields(args);
 	Color::readFields(args);
+
 }
