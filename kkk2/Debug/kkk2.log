@@ -1,12 +1,18 @@
 ﻿  interface.cpp
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(12): warning C4091: extern : пропускается слева от "lang", когда ни одна переменная не объявлена
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(17): warning C4091: extern : пропускается слева от "namefile", когда ни одна переменная не объявлена
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(30): warning C4091: extern : пропускается слева от "slides", когда ни одна переменная не объявлена
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(43): warning C4091: extern : пропускается слева от "Style::style", когда ни одна переменная не объявлена
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(42): warning C4101: e: неиспользованная локальная переменная
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(123): warning C4101: e: неиспользованная локальная переменная
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(143): warning C4101: e: неиспользованная локальная переменная
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(448): warning C4101: e: неиспользованная локальная переменная
-c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(468): warning C4101: e: неиспользованная локальная переменная
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(13): warning C4091: extern : пропускается слева от "lang", когда ни одна переменная не объявлена
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(18): warning C4091: extern : пропускается слева от "namefile", когда ни одна переменная не объявлена
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(31): warning C4091: extern : пропускается слева от "slides", когда ни одна переменная не объявлена
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(44): warning C4091: extern : пропускается слева от "Style::style", когда ни одна переменная не объявлена
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(41): warning C4101: e: неиспользованная локальная переменная
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(128): warning C4101: e: неиспользованная локальная переменная
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(148): warning C4101: e: неиспользованная локальная переменная
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(455): warning C4101: e: неиспользованная локальная переменная
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\interface.cpp(475): warning C4101: e: неиспользованная локальная переменная
+  globals.cpp
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(13): warning C4091: extern : пропускается слева от "lang", когда ни одна переменная не объявлена
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(18): warning C4091: extern : пропускается слева от "namefile", когда ни одна переменная не объявлена
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(31): warning C4091: extern : пропускается слева от "slides", когда ни одна переменная не объявлена
+c:\users\xxx\desktop\курсовой 2 семестр\oop-andermirik\kkk2\globals.h(44): warning C4091: extern : пропускается слева от "Style::style", когда ни одна переменная не объявлена
+  Создание кода...
   kkk2.vcxproj -> C:\Users\xxx\Desktop\курсовой 2 семестр\OOP-andermirik\Debug\kkk2.exe
   kkk2.vcxproj -> C:\Users\xxx\Desktop\курсовой 2 семестр\OOP-andermirik\Debug\kkk2.pdb (Partial PDB)

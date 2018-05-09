@@ -136,7 +136,13 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="res\en.txt" />
+    <Text Include="res\eng_aboutme.txt" />
+    <Text Include="res\eng_aboutprog.txt" />
+    <Text Include="res\eng_readme.txt" />
     <Text Include="res\ru.txt" />
+    <Text Include="res\rus_aboutme.txt" />
+    <Text Include="res\rus_aboutprog.txt" />
+    <Text Include="res\rus_readme.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

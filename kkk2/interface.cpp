@@ -61,7 +61,6 @@ void Interface::Init(std::string config) {
 		system("chcp 1251>nul");
 		setlocale(0, "rus");
 	}
-	cout<<NumStrs("res/en.txt");
 	if (!Interface::CheckIncludeFiles())
 		cin.get();
 	Interface::UploadFilesMemory();
@@ -69,14 +68,21 @@ void Interface::Init(std::string config) {
 
 bool Interface::CheckIncludeFiles(string file) {
 	bool result = true;
+	int now = 0;
 	if(file=="")
 		for each (string file in include_files)
 		{
 			if (!fopen(file.c_str(), "r")) {
 				Interface::Put(1, lang_now);
 				cout << file << endl;
+				
 				result = false;
+			}else
+				if (NumStrs(file) < count_strs_all[now++]) {
+					result = false;
+					cout << file <<" "<< NumStrs(file) << " < " << count_strs_all[now - 1];
 			}
+			
 		}
 	else 
 		if(!fopen(file.c_str(), "r"))
@@ -245,8 +251,10 @@ void Interface::DrawSlide(int slide, int back_slide) {
 				getline(cin, temp); 
 
 				if (fopen(temp.c_str(), "r")) {
-				//	if()
-					include_files[key - 49] = temp;
+					if (NumStrs(temp) < count_strs_all[key - 49]) {
+						cout << temp << " " << NumStrs(temp)<< "<" <<count_strs_all[key-49];
+					}
+					else { include_files[key - 49] = temp; cout << "+\n"; }
 				}
 				else Interface::Put(1);
 

@@ -82,5 +82,23 @@
     <Text Include="res\en.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
+    <Text Include="res\eng_aboutme.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="res\eng_aboutprog.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="res\eng_readme.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="res\rus_aboutme.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="res\rus_aboutprog.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="res\rus_readme.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
   </ItemGroup>
 </Project>

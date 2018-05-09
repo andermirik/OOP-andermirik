@@ -1,4 +1,4 @@
-res\ru.txt
+res/ru.txt
 res\en.txt
 res\rus_readme.txt
 res\rus_aboutme.txt

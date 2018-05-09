@@ -3,8 +3,7 @@
 void main() {
 	Interface::Init(config_path);
 
-	//Interface::DrawSlide(start);
-	//Interface::Init(config_path);
-	//Interface::DrawSlide(menu);
+	Interface::DrawSlide(start);
+	Interface::DrawSlide(menu);
 
 }

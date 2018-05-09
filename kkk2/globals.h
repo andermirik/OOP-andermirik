@@ -4,6 +4,7 @@
 #include <iostream>
 #include "object.h"
 extern string langs[2][COUNT_STRS_TRANSLETE];
+extern int count_strs_all[8];
 extern int lang_now;
 extern std::string config_path;
 extern enum lang {
@@ -45,13 +46,13 @@ namespace Style {
 extern std::string include_files[COUNT_FILES];
 
 /*
-0: rus.txt
-1: eng.txt
-2: rus_readme.txt
-3: rus_aboutme
-4: rus_aboutprog
-5: eng_readme
-6: eng_aboutme
-7: eng_aboutprog
+0: rus.txt  97
+1: eng.txt  97
+2: rus_readme.txt   13
+3: rus_aboutme  3
+4: rus_aboutprog  28
+5: eng_readme  22 
+6: eng_aboutme 3
+7: eng_aboutprog 32
 
 */

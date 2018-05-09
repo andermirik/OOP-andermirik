@@ -6,3 +6,4 @@ std::string include_files[COUNT_FILES];
 std::string config_path = "config.txt";
 int Object::count = 0;
 string langs[2][COUNT_STRS_TRANSLETE];
+int count_strs_all[8] = { COUNT_STRS_TRANSLETE, COUNT_STRS_TRANSLETE,13,3,28,22,3,32 };
