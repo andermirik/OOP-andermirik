@@ -29,7 +29,7 @@ bool Interface::UploadFilesMemory()
 		ruin.open(include_files[0]);
 		enin.open(include_files[1]);
 		int now = 0;
-		while (!ruin.eof()&&!enin.eof()&&getline(ruin, rumsg) && getline(enin, enmsg))
+		while (!ruin.eof() && !enin.eof() && getline(ruin, rumsg) && getline(enin, enmsg))
 		{
 			if (now < COUNT_STRS_TRANSLETE) {
 				langs[0][now] = rumsg;
@@ -324,7 +324,12 @@ void Interface::DrawSlide(int slide, int back_slide) {
 			
 			if (key == '1') {
 				Object*objFly = new Fly(0, 0, 0, 0);
-				((Fly*)objFly)->readFields(Style::SPEED|Style::HEIGHT|Style::DISTANCE|Style::NUM_OF_PASS);
+				((Fly*)objFly)->readFields(
+					Style::SPEED
+					|Style::HEIGHT
+					|Style::DISTANCE
+					|Style::NUM_OF_PASS
+				);
 				container.pushBack(objFly);
 
 			}
@@ -353,8 +358,14 @@ void Interface::DrawSlide(int slide, int back_slide) {
 
 			if (key == '1') {
 				Object*objFly = new Helicopter(0, 0, 0, 0, 0, 0);
-				((Helicopter*)objFly)->readFields(Style::SPEED | Style::HEIGHT | Style::DISTANCE| Style::NUM_OF_PASS 
-					| Style::NUM_OF_SCREW | Style::CAPACITY);
+				((Helicopter*)objFly)->readFields(
+					Style::SPEED
+					| Style::HEIGHT
+					| Style::DISTANCE
+					| Style::NUM_OF_PASS 
+					| Style::NUM_OF_SCREW 
+					| Style::CAPACITY
+				);
 				container.pushBack(objFly);
 
 			}
@@ -383,8 +394,14 @@ void Interface::DrawSlide(int slide, int back_slide) {
 
 			if (key == '1') {
 				Object*objFly = new Airplane(0, 0, 0, 0, 0, 0);
-				((Airplane*)objFly)->readFields(Style::SPEED | Style::HEIGHT | Style::DISTANCE | Style::NUM_OF_PASS 
-					| Style::NUM_OF_ENGINES | Style::CAPACITY);
+				((Airplane*)objFly)->readFields(
+					Style::SPEED
+					| Style::HEIGHT
+					| Style::DISTANCE
+					| Style::NUM_OF_PASS 
+					| Style::NUM_OF_ENGINES
+					| Style::CAPACITY
+				);
 				container.pushBack(objFly);
 
 			}
@@ -485,11 +502,11 @@ void Interface::SaveData()
 		ofstream fout("data/data.txt");
 		fout << container;
 		fout.close();
-		if(lang_now == eng)
-			cout << endl << "session saved"<<endl;
-		else if (lang_now == rus) 
-			cout << endl << "сессия сохранена"<<endl;
-		
+		if (lang_now == eng)
+			cout << endl << "session saved" << endl;
+		else if (lang_now == rus)
+			cout << endl << "сессия сохранена" << endl;
+
 	}
 	else {
 		if (lang_now == eng)
