@@ -1,7 +1,8 @@
 #include "interface.h"
 #include "container.h"
-
 using namespace std;
+#define EXIT(isExit) if((isExit)){cin.get();exit(-1);}
+
 
 int NumStrs(string file) {
 	ifstream inp(file);
@@ -15,12 +16,13 @@ int NumStrs(string file) {
 void Interface::Put(int num, int locale, char end) {
 	cout << langs[locale][num-1] << end;
 }
-void Interface::UploadFilesMemory()
+bool Interface::UploadFilesMemory()
 {
 	string rumsg;
 	string enmsg;
 	ifstream ruin;
 	ifstream enin;
+	bool result = true;
 	ruin.exceptions(ifstream::failbit);
 	enin.exceptions(ifstream::failbit);
 	try {
@@ -42,7 +44,9 @@ void Interface::UploadFilesMemory()
 			cerr << "unable to open file with translate" << endl;
 		else if (lang_now == rus)
 			cerr << "не удалось открыть файл с перевом" << endl;
+		result = false;
 	}
+	return result;
 }
 void Interface::Put(Range range, int locale)
 {
@@ -56,13 +60,12 @@ void Interface::Init(std::string config) {
 	static int firstrun = 1;
 	Interface::UseConfig(config);
 	if (firstrun) {
-		firstrun = !firstrun;
+		firstrun = 0;
 		system("chcp 1251>nul");
 		setlocale(0, "rus");
 	}
-	if (!Interface::CheckIncludeFiles())
-		cin.get();
-	Interface::UploadFilesMemory();
+	bool isExit = !Interface::CheckIncludeFiles() & !Interface::UploadFilesMemory();
+	EXIT(isExit);
 }
 
 bool Interface::CheckIncludeFiles(string file) {
@@ -234,7 +237,12 @@ void Interface::DrawSlide(int slide, int back_slide) {
 					if (NumStrs(temp) < count_strs_all[key - 49]) {
 						cout << temp << " " << NumStrs(temp)<< "<" <<count_strs_all[key-49];
 					}
-					else { include_files[key - 49] = temp; cout << "+\n"; }
+					else {
+						include_files[key - 49] = temp;
+						cout << "+" << endl;
+						if (key == '1' || key == '2')
+							EXIT(!UploadFilesMemory());
+					}
 				}
 				else Interface::Put(1);
 
@@ -405,8 +413,16 @@ void Interface::DrawSlide(int slide, int back_slide) {
 
 			if (key == '1') {
 				Object*objFly = new ColoredHeli(0, 0, 0, 0, 0, 0, 0, 0, 0);
-				((ColoredHeli*)objFly)->readFields(Style::SPEED | Style::HEIGHT | Style::DISTANCE | Style::NUM_OF_PASS
-					| Style::NUM_OF_SCREW | Style::CAPACITY | Style::RED | Style::GREEN | Style::BLUE);
+				((ColoredHeli*)objFly)->readFields(
+					Style::SPEED
+					| Style::HEIGHT
+					| Style::DISTANCE
+					| Style::NUM_OF_PASS
+					| Style::NUM_OF_SCREW
+					| Style::CAPACITY
+					| Style::RED
+					| Style::GREEN
+					| Style::BLUE);
 				container.pushBack(objFly);
 
 			}

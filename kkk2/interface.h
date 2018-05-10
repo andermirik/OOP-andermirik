@@ -9,7 +9,7 @@
 struct Range;
 class Interface {
 public:
-	static void UploadFilesMemory();
+	static bool UploadFilesMemory();
 	static void Put(int number, int locale = lang_now, char end = '\n');
 
 	static void Put(Range r, int locale = lang_now);
