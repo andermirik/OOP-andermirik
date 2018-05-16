@@ -34,7 +34,7 @@ void ObjectList::read(ifstream &fin)
 			fin >> obj;
 		}
 		else if (type == "Airplane") {
-			obj = new Airplane(0, 0, 0, 0, 0, 0);
+			obj = new Airplane(0, 0, 0, 0, 0, 0, 0);
 			fin >> obj;
 		}
 		/*else if (type == "Color") {
@@ -148,12 +148,12 @@ bool ObjectList::EditItemInPos(int pos)
 		Interface::cls();
 		Interface::Put(92, lang_now, ' '); cout << now->type_name << endl;
 		if (now->type_name == "Fly") {
-			cout << "1."; Interface::Put(93, lang_now, ' '); cout << "speed" << endl;
-			cout << "2."; Interface::Put(93, lang_now, ' '); cout << "height" << endl;
-			cout << "3."; Interface::Put(93, lang_now, ' '); cout << "distance" << endl;
-			cout << "4."; Interface::Put(93, lang_now, ' '); cout << "num_of_pass" << endl;
+			cout << "1."<<sysMsgs[lang_now][13]<< sysMsgs[lang_now][1] << endl;
+			cout << "2." << sysMsgs[lang_now][13] << sysMsgs[lang_now][2] << endl;
+			cout << "3." << sysMsgs[lang_now][13] << sysMsgs[lang_now][3] << endl;
+			cout << "4." << sysMsgs[lang_now][13] << sysMsgs[lang_now][4] << endl;
 			cout << "5."; Interface::Put(94); cout << endl;
-			cout << "h."; Interface::Put(95, lang_now, ' '); cout << "isFlying" << endl;
+			cout << "h." <<sysMsgs[lang_now][13] << sysMsgs[lang_now][12]; cout << "isFlying" << endl;
 			Interface::Put(86);
 			do {
 				key = _getch();
@@ -189,17 +189,17 @@ bool ObjectList::EditItemInPos(int pos)
 			} while (key != 'b'&&key != 'è');
 		}
 		else if (now->type_name == "Helicopter") {
-			cout << "1."; Interface::Put(93, lang_now, ' '); cout << "speed" << endl;
-			cout << "2."; Interface::Put(93, lang_now, ' '); cout << "height" << endl;
-			cout << "3."; Interface::Put(93, lang_now, ' '); cout << "distance" << endl;
-			cout << "4."; Interface::Put(93, lang_now, ' '); cout << "num_of_pass" << endl;
-			cout << "5."; Interface::Put(93, lang_now, ' '); cout << "num_of_screw" << endl;
-			cout << "6."; Interface::Put(93, lang_now, ' '); cout << "capacity" << endl;
+			cout << "1." << sysMsgs[lang_now][13] << sysMsgs[lang_now][1] << endl;
+			cout << "2." << sysMsgs[lang_now][13] << sysMsgs[lang_now][2] << endl;
+			cout << "3." << sysMsgs[lang_now][13] << sysMsgs[lang_now][3] << endl;
+			cout << "4." << sysMsgs[lang_now][13] << sysMsgs[lang_now][4] << endl;
+			cout << "5." << sysMsgs[lang_now][13] << sysMsgs[lang_now][5] << endl;
+			cout << "6." << sysMsgs[lang_now][13] << sysMsgs[lang_now][6] << endl;
 			cout << "7."; Interface::Put(94); cout << endl;
 			cout << "h."; Interface::Put(95, lang_now, ' '); cout << "isFlying" << endl;
 			cout << "a."; Interface::Put(95, lang_now, ' '); cout << "AddFuel" << endl;
-			cout << "~."; Interface::Put(95, lang_now, ' '); cout << "operator~" << endl;
-			cout << "p."; Interface::Put(95, lang_now, ' '); cout << "operator++" << endl;
+			cout << "~." << sysMsgs[lang_now][14] << "~" << endl;
+			cout << "p." << sysMsgs[lang_now][14] << "++" << endl;
 			Interface::Put(86);
 			do {
 				key = _getch();
@@ -255,17 +255,18 @@ bool ObjectList::EditItemInPos(int pos)
 			} while (key != 'b'&&key != 'è');
 		}
 		else if (now->type_name == "Airplane") {
-			cout << "1."; Interface::Put(93, lang_now, ' '); cout << "speed" << endl;
-			cout << "2."; Interface::Put(93, lang_now, ' '); cout << "height" << endl;
-			cout << "3."; Interface::Put(93, lang_now, ' '); cout << "distance" << endl;
-			cout << "4."; Interface::Put(93, lang_now, ' '); cout << "num_of_pass" << endl;
-			cout << "5."; Interface::Put(93, lang_now, ' '); cout << "num_of_screw" << endl;
-			cout << "6."; Interface::Put(93, lang_now, ' '); cout << "capacity" << endl;
-			cout << "7."; Interface::Put(94); cout << endl;
+			cout << "1." << sysMsgs[lang_now][13] << sysMsgs[lang_now][1] << endl;
+			cout << "2." << sysMsgs[lang_now][13] << sysMsgs[lang_now][2] << endl;
+			cout << "3." << sysMsgs[lang_now][13] << sysMsgs[lang_now][3] << endl;
+			cout << "4." << sysMsgs[lang_now][13] << sysMsgs[lang_now][4] << endl;
+			cout << "5." << sysMsgs[lang_now][13] << sysMsgs[lang_now][7] << endl;
+			cout << "6." << sysMsgs[lang_now][13] << sysMsgs[lang_now][6] << endl;
+			cout << "7." << sysMsgs[lang_now][13] << sysMsgs[lang_now][11] << endl;
+			cout << "8."; Interface::Put(94); cout << endl;
 			cout << "h."; Interface::Put(95, lang_now, ' '); cout << "isFlying" << endl;
 			cout << "a."; Interface::Put(95, lang_now, ' '); cout << "AddFuel" << endl;
-			cout << "~."; Interface::Put(95, lang_now, ' '); cout << "operator~" << endl;
-			cout << "p."; Interface::Put(95, lang_now, ' '); cout << "operator++" << endl;
+			cout << "~." << sysMsgs[lang_now][14] << "~" << endl;
+			cout << "p." << sysMsgs[lang_now][14] << "++" << endl;
 			Interface::Put(86);
 			do {
 				key = _getch();
@@ -292,6 +293,9 @@ bool ObjectList::EditItemInPos(int pos)
 					((Airplane*)now->object)->readFields(Style::CAPACITY);
 				}
 				else if (key == '7') {
+					((Airplane*)now->object)->readFields(Style::WEIGHT);
+				}
+				else if (key == '8') {
 					cout << endl;
 					cout << now->object;
 				}
@@ -321,21 +325,21 @@ bool ObjectList::EditItemInPos(int pos)
 			} while (key != 'b'&&key != 'è');
 		}
 		else if (now->type_name == "ColoredHeli") {
-			cout << "1."; Interface::Put(93, lang_now, ' '); cout << "speed" << endl;
-			cout << "2."; Interface::Put(93, lang_now, ' '); cout << "height" << endl;
-			cout << "3."; Interface::Put(93, lang_now, ' '); cout << "distance" << endl;
-			cout << "4."; Interface::Put(93, lang_now, ' '); cout << "num_of_pass" << endl;
-			cout << "5."; Interface::Put(93, lang_now, ' '); cout << "num_of_screw" << endl;
-			cout << "6."; Interface::Put(93, lang_now, ' '); cout << "capacity" << endl;
-			cout << "7."; Interface::Put(93, lang_now, ' '); cout << "red" << endl;
-			cout << "8."; Interface::Put(93, lang_now, ' '); cout << "green" << endl;
-			cout << "9."; Interface::Put(93, lang_now, ' '); cout << "blue" << endl;
+			cout << "1." << sysMsgs[lang_now][13] << sysMsgs[lang_now][1] << endl;
+			cout << "2." << sysMsgs[lang_now][13] << sysMsgs[lang_now][2] << endl;
+			cout << "3." << sysMsgs[lang_now][13] << sysMsgs[lang_now][3] << endl;
+			cout << "4." << sysMsgs[lang_now][13] << sysMsgs[lang_now][4] << endl;
+			cout << "5." << sysMsgs[lang_now][13] << sysMsgs[lang_now][5] << endl;
+			cout << "6." << sysMsgs[lang_now][13] << sysMsgs[lang_now][6] << endl;
+			cout << "7." << sysMsgs[lang_now][13] << sysMsgs[lang_now][8] << endl;
+			cout << "8." << sysMsgs[lang_now][13] << sysMsgs[lang_now][9] << endl;
+			cout << "9." << sysMsgs[lang_now][13] << sysMsgs[lang_now][10] << endl;
 			cout << "0."; Interface::Put(94); cout << endl;
 			cout << "h."; Interface::Put(95, lang_now, ' '); cout << "isFlying" << endl;
 			cout << "a."; Interface::Put(95, lang_now, ' '); cout << "AddFuel" << endl;
-			cout << "~."; Interface::Put(95, lang_now, ' '); cout << "operator~" << endl;
-			cout << "p."; Interface::Put(95, lang_now, ' '); cout << "operator++" << endl;
-			cout << "m."; Interface::Put(95, lang_now, ' '); cout << "operator--" << endl;
+			cout << "~."<< sysMsgs[lang_now][14] <<"~" << endl;
+			cout << "p."<< sysMsgs[lang_now][14] <<"++" << endl;
+			cout << "m."<< sysMsgs[lang_now][14] << "--" << endl;
 			cout << "w."; Interface::Put(95, lang_now, ' '); cout << "WhatColor" << endl;
 			Interface::Put(86);
 			do {

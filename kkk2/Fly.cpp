@@ -1,5 +1,5 @@
 #include "Fly.h"
-
+#include "string";
 int Fly::GetDistance()
 {
 	return distance;
@@ -37,7 +37,11 @@ void Fly::ToFile(ofstream & fout)
 
 void Fly::ToStd(ostream & out)
 {
-	out<<"speed: " << speed << endl <<"height: "<< height << endl <<"distance: "<< distance << endl <<"num_of_pass: "<< num_of_pass << endl;
+	
+	out<<sysMsgs[lang_now][1] << speed << endl
+	<< sysMsgs[lang_now][2] << height << endl
+	<< sysMsgs[lang_now][3] << distance << endl
+	<< sysMsgs[lang_now][4] << num_of_pass << endl;
 }
 
 void Fly::read(ifstream & fin)
@@ -48,19 +52,19 @@ void Fly::read(ifstream & fin)
 void Fly::readFields(int args)
 {
 	if (args&Style::SPEED) {
-		cout << "speed: ";
+		cout << sysMsgs[lang_now][1];
 		speed = Reader::Int();
 	}
 	if (args&Style::HEIGHT) {
-		cout << "height: ";
+		cout<<sysMsgs[lang_now][2];
 		height = Reader::Int();
 	}
 	if (args&Style::DISTANCE) {
-		cout << "distance: ";
+		cout<<sysMsgs[lang_now][3];
 		distance = Reader::Int();
 	}
 	if (args&Style::NUM_OF_PASS) {
-		cout << "num_of_pass: ";
+		cout<<sysMsgs[lang_now][4];
 		num_of_pass = Reader::Int();
 	}
 }

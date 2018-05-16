@@ -11,7 +11,7 @@ class Interface {
 public:
 	static bool UploadFilesMemory();
 	static void Put(int number, int locale = lang_now, char end = '\n');
-
+	static void SystemPut(int number, int locale = lang_now, char end = '\n');
 	static void Put(Range r, int locale = lang_now);
 	static void cls();
 	static void Init(std::string config = config_path);

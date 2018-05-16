@@ -1,5 +1,5 @@
 #include "Fly.h"
-
+#include "string"
 bool Helicopter::AddFuel(int Fuel)
 {
 	if (capacity == 100)
@@ -33,7 +33,8 @@ void Helicopter::operator~()
 void Helicopter::ToStd(ostream & out)
 {
 	Fly::ToStd(out);
-	out <<"num_of_screw: "<< num_of_screw << endl <<"capacity: "<< capacity << endl;
+	out << sysMsgs[lang_now][5] << num_of_screw << endl
+	<< sysMsgs[lang_now][6] << capacity << endl;
 }
 
 void Helicopter::read(ifstream & fin)
@@ -46,11 +47,11 @@ void Helicopter::readFields(int args)
 {
 	Fly::readFields(args);
 	if (args&Style::NUM_OF_SCREW) {
-		cout << "num_of_screw: ";
+		cout << sysMsgs[lang_now][5];
 		num_of_screw = Reader::Int();
 	}
 	if (args&Style::CAPACITY) {
-		cout << "capacity: ";
+		cout << sysMsgs[lang_now][6];
 		capacity = Reader::Int();
 	}
 }

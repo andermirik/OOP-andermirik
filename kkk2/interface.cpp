@@ -16,6 +16,11 @@ int NumStrs(string file) {
 void Interface::Put(int num, int locale, char end) {
 	cout << langs[locale][num-1] << end;
 }
+
+void Interface::SystemPut(int num, int locale, char end) {
+	cout << sysMsgs[locale][num - 1] << end;
+}
+
 bool Interface::UploadFilesMemory()
 {
 	string rumsg;
@@ -56,6 +61,40 @@ void Interface::Put(Range range, int locale)
 void Interface::cls() {
 	system("cls");
 }
+
+void MsgInit() {
+	sysMsgs[rus][0] = "ОШИБКА! Файла не существует или количество строк не совпадает";
+	sysMsgs[eng][0] = "ERROR! File is no exist or count str's is no correct";
+	sysMsgs[rus][1] = "скорость: ";
+	sysMsgs[eng][1] = "speed: ";
+	sysMsgs[rus][2] = "высота: ";
+	sysMsgs[eng][2] = "height: ";
+	sysMsgs[rus][3] = "расстояние: ";
+	sysMsgs[eng][3] = "distance: ";
+	sysMsgs[rus][4] = "кол-во пассажиров: ";
+	sysMsgs[eng][4] = "num of pass: ";
+	sysMsgs[rus][5] = "кол-во винтов: ";
+	sysMsgs[eng][5] = "num of screws: ";
+	sysMsgs[rus][6] = "объем бака: ";
+	sysMsgs[eng][6] = "capacity: ";
+	sysMsgs[rus][7] = "количество двигателей: ";
+	sysMsgs[eng][7] = "num of engines: ";
+	sysMsgs[rus][8] = "красный: ";
+	sysMsgs[eng][8] = "red: ";
+	sysMsgs[rus][9] = "зеленый: ";
+	sysMsgs[eng][9] = "green: ";
+	sysMsgs[rus][10] = "синий: ";
+	sysMsgs[eng][10] = "blue: ";
+	sysMsgs[rus][11] = "вес: ";
+	sysMsgs[eng][11] = "weight: ";
+	sysMsgs[rus][12] = "метод: ";
+	sysMsgs[eng][12] = "method: ";
+	sysMsgs[rus][13] = "изменить поле ";
+	sysMsgs[eng][13] = "edit field ";
+	sysMsgs[rus][14] = "оператор ";
+	sysMsgs[eng][14] = "operator ";
+}
+
 void Interface::Init(std::string config) {
 	static int firstrun = 1;
 	Interface::UseConfig(config);
@@ -63,8 +102,11 @@ void Interface::Init(std::string config) {
 		firstrun = 0;
 		system("chcp 1251>nul");
 		setlocale(0, "rus");
+		MsgInit();
 	}
-	bool isExit = !Interface::CheckIncludeFiles() & !Interface::UploadFilesMemory();
+	bool isExit = !Interface::CheckIncludeFiles();//если недостаточно файлов или кол-во строк не совпадают
+	EXIT(isExit);
+	isExit = !Interface::UploadFilesMemory();//если не смог открыть файл с переводом
 	EXIT(isExit);
 }
 
@@ -82,7 +124,9 @@ bool Interface::CheckIncludeFiles(string file) {
 			}else
 				if (NumStrs(file) < count_strs_all[now++]) {
 					result = false;
-					cout << file <<" "<< NumStrs(file) << " < " << count_strs_all[now - 1];
+					cout << file << endl;
+					Interface::SystemPut(1,lang_now, ' ');
+					cout<<"("<<NumStrs(file) << " < " << count_strs_all[now - 1]<<")";
 			}
 		}
 	else 
@@ -235,7 +279,8 @@ void Interface::DrawSlide(int slide, int back_slide) {
 
 				if (fopen(temp.c_str(), "r")) {
 					if (NumStrs(temp) < count_strs_all[key - 49]) {
-						cout << temp << " " << NumStrs(temp)<< "<" <<count_strs_all[key-49];
+						SystemPut(1, lang_now, ' ');
+						cout << "(" << NumStrs(temp)<< "<" <<count_strs_all[key-49]<<")\n";
 					}
 					else {
 						include_files[key - 49] = temp;
@@ -393,7 +438,7 @@ void Interface::DrawSlide(int slide, int back_slide) {
 			key = _getch();
 
 			if (key == '1') {
-				Object*objFly = new Airplane(0, 0, 0, 0, 0, 0);
+				Object*objFly = new Airplane(0, 0, 0, 0, 0, 0, 0);
 				((Airplane*)objFly)->readFields(
 					Style::SPEED
 					| Style::HEIGHT
@@ -401,6 +446,7 @@ void Interface::DrawSlide(int slide, int back_slide) {
 					| Style::NUM_OF_PASS 
 					| Style::NUM_OF_ENGINES
 					| Style::CAPACITY
+					| Style::WEIGHT
 				);
 				container.pushBack(objFly);
 

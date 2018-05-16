@@ -1,10 +1,10 @@
 #pragma once
 #include "conio.h"
 #include "stdio.h"
-class Reader
+namespace Reader
 {
-public:
-	static int Int();
+
+	 int Int();
 
 };
 

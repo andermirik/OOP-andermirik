@@ -1,9 +1,11 @@
 #pragma once
 #define COUNT_FILES 8
 #define COUNT_STRS_TRANSLETE 97
+#define COUNT_SYS_MSG 40
 #include <iostream>
 #include "object.h"
 extern string langs[2][COUNT_STRS_TRANSLETE];
+extern string sysMsgs[2][COUNT_SYS_MSG];
 extern int count_strs_all[8];
 extern int lang_now;
 extern std::string config_path;
@@ -40,7 +42,8 @@ namespace Style {
 		NUM_OF_ENGINES = 1 << 6,
 		RED            = 1 << 7,
 		GREEN          = 1 << 8,
-		BLUE           = 1 << 9
+		BLUE           = 1 << 9,
+		WEIGHT         = 1 << 10
 	};
 }
 extern std::string include_files[COUNT_FILES];

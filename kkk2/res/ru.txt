@@ -34,7 +34,7 @@ Select other: 1
 Меню:
 1.Редактировать файл конфига
 2.Сохранить текущую сессию
-3.Change lang
+3.Change language
 4.Демонстрация
 5.Напечатать readme
 6.Напечатать aboutme
@@ -52,7 +52,7 @@ Select other: 1
 8: английский aboutprog
 
 d: готово
-с: change lang
+с: change language
 s: сохранить конфиг
 имя:
 Сессия загружена
@@ -63,7 +63,7 @@ s: сохранить конфиг
 4.Мод ColoredHeli
 
 
-c.change lang
+c.change language
 s.просмотр контера
 b.назад
 
@@ -82,7 +82,7 @@ b.назад
 1.Добавить ColoredHeli в контейнер
 2.Удалить последний ColoredHeli из контейнера
 
-c.change lang
+c.change language
 b.назад
 o.количество объектов
 количество объектов:

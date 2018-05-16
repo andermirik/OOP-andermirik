@@ -8,12 +8,12 @@ int Reader::Int()
 	{
 
 		k = _getch();
-		if ((k == '-') && (flgS == 0))
+		/*if ((k == '-') && (flgS == 0))
 		{
 			flgS = -1;
 			_putch('-');
 			c++;
-		}
+		}*/
 
 		if ((k >= '0') && (k <= '9'))
 		{

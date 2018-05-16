@@ -52,10 +52,11 @@ class Airplane : public  Fly {
 protected:
 	int num_of_engines;
 	int capacity;
+	int weight;
 public:
 	static int count;
 	bool AddFuel(int Fuel);
-	Airplane(int Speed, int Distance, int NumOfPass, int Height, int NumOfEngines, int Capacity);
+	Airplane(int Speed, int Distance, int NumOfPass, int Height, int NumOfEngines, int Capacity, int Weight);
 	virtual ~Airplane() { Airplane::count--; Fly::count++; }
 	void ToFile(ofstream& fout);
 	void operator~(); //сбросить топливо

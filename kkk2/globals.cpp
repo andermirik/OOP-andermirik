@@ -11,3 +11,4 @@ int Airplane::count = 0;
 int ColoredHeli::count = 0;
 string langs[2][COUNT_STRS_TRANSLETE];
 int count_strs_all[8] = { COUNT_STRS_TRANSLETE, COUNT_STRS_TRANSLETE,13,3,28,22,3,32 };
+string sysMsgs[2][COUNT_SYS_MSG];
