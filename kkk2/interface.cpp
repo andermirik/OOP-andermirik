@@ -117,17 +117,13 @@ bool Interface::CheckIncludeFiles(string file) {
 		for each (string file in include_files)
 		{
 			if (!fopen(file.c_str(), "r")) {
-				Interface::Put(1, lang_now);
-				cout << file << endl;
-				
-				result = false;
-			}else
 				if (NumStrs(file) < count_strs_all[now++]) {
 					result = false;
 					cout << file << endl;
-					Interface::SystemPut(1,lang_now, ' ');
-					cout<<"("<<NumStrs(file) << " < " << count_strs_all[now - 1]<<")";
-			}
+					Interface::SystemPut(1, lang_now, ' ');
+					cout << "(" << NumStrs(file) << " < " << count_strs_all[now - 1] << ")";
+				}
+			}	
 		}
 	else 
 		if(!fopen(file.c_str(), "r"))
